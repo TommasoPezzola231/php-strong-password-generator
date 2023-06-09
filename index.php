@@ -1,7 +1,10 @@
 <?php
+    session_start();
     include "functions.php";
 
     $lunghezzaPassord = $_GET["lunghezza"];
+    $passwordGenerata = generaPassword($lunghezzaPassord);
+    $_SESSION["passwordGenerata"] = $passwordGenerata
     
 ?>
 
@@ -19,16 +22,10 @@
         <label for="lunghezza">Lunghezza Password</label>
         <input type="number" name="lunghezza" id="lunghezza">
         <button type="submit">Genera</button>
-        <p>
-            
-            <?php
-                if (isset($lunghezzaPassord)) {
-                    echo generaPassword($lunghezzaPassord); 
-                } 
-            ?>
-        
-        </p>
     </form>
+    <?php if ($passwordGenerata != "") { ?>
+        <a href="password.php">Vedi Password</a>
+    <?php } ?>
 
 </body>
 </html>
