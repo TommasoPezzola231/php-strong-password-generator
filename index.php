@@ -23,9 +23,9 @@
         <input type="number" name="lunghezza" id="lunghezza">
         <button type="submit">Genera</button>
     </form>
-    <?php if ($passwordGenerata != "") { ?>
-        <a href="password.php">Vedi Password</a>
-    <?php } ?>
+    <?php if ($passwordGenerata != "") { 
+        header('Location: ./password.php');
+    } ?>
 
 </body>
 </html>
